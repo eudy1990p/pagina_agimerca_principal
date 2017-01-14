@@ -96,6 +96,11 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 		</div>
 	</header>
 
+	<!-- Carrusel agregado por nelson -->
+	<div class="container-fluid">
+		<?php require_once 'agimerca/carrusel.php'; ?>
+	</div>
+
 	<div id="fh5co-core-feature">
 		<div class="container">
 			<div class="row">
