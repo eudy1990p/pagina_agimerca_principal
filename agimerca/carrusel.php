@@ -7,7 +7,9 @@
 <script src="js/ie-emulation-modes-warning.js"></script>
 <!-- Impresindible para que la pagina funcione -->
 
-<div class="col-md-12 text-center"><h3>Ultimas entradas</h3></div>
+<div class="col-md-12 text-center">	
+	<h3 class="alert alert-info text-primary" style="margin-top: 1em">Ultimas entradas</h3>
+</div>
 <!-- Se establece el tamaño en 12 en un principio -->
 <div class="col-md-12">
 	<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
@@ -34,31 +36,33 @@
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
 			<div class="card col-xs-3 alert" >
-		  <img class="card-img-top img-responsive" src="<?php echo $datos['img_url'] ?>" alt="sin imagen">
-		  <div class="card-block">
-		    <!-- <h4 class="card-title"></h4> -->
-		    <p class="card-text" style="max-height: 40px;overflow: hidden;"><?php echo $datos['post']; ?></p>
-		  </div>
-		  <ul class="list-group list-group-flush">
-		    <li class="list-group-item">
-		    <form action="pagina para ver post" method="post">
-		    	<button class="btn btn-block btn-info" name="id_publicacion" value="<?php echo $datos['id'] ?>">
-		    	ver publicacion
-		    	</button>
-		    </form>
-		    </li>
-		    <li class="list-group-item">
-		    <form action="pagina para ver usuario" method="post">
-		    	<button class="btn btn-block btn-link" name="id_usuario" value="<?php echo $datos['usuario'] ?>">
-		    	autor: <?php echo $datos['autor'] ?>
-		    	</button>
-		    </form>
-		    </li>
-		  </ul>
-		  <div class="card-block">
-		    <p class="alert alert-info">Fecha: <?php echo $datos['fecha_creado'] ?></p>
-		  </div>
-		</div>
+			  <!-- <img class="card-img-top img-responsive" src="<?php echo $datos['img_url'] ?>" alt="sin imagen"> -->
+			  <h5><strong>Contenido</strong></h5>
+			  <div class="card-block">
+			    <!-- <h4 class="card-title"></h4> -->
+			    <div class="card-text texto-publicacion" style="height: 5em;overflow: hidden;">
+					<?php echo $datos['post']; ?>
+			    </div>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <li class="list-group-item">
+			    	<a class="btn btn-block btn-info" href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
+			    		ver publicacion
+			    	</a>
+			    </li>
+			    <li class="list-group-item">
+				    <a href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
+				    	author:<?php echo $datos['autor'] ?>
+				    </a>
+			    <!--
+			    http://localhost/agimercaEudy/publicaciones_perfil_usuario.php?user_id=2 
+			     -->
+			    </li>
+			  </ul>
+			  <div class="card-block">
+			    <p class="alert alert-info">Fecha: <?php echo $datos['fecha_creado'] ?></p>
+			  </div>
+			</div>
 	    </div>
 
 
@@ -103,6 +107,13 @@
 	border-radius: 2px;
 	border: 1px solid #e3e3e3;
 }
+
+.texto-publicacion{
+	border:solid 1px #70c58f4d;
+	border-radius: 5px;
+	text-align: justify;
+}
+
 </style>
 <script type="text/javascript">
 	$('.carousel[data-type="multi"] .item').each(function(){
