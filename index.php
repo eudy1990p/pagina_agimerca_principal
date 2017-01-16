@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="
 https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 
+	
 	 <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	
 	<!-- Animate.css -->
@@ -101,7 +102,7 @@ https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 		<?php require_once 'agimerca/carrusel.php'; ?>
 	</div>
 
-	<div id="fh5co-core-feature">
+	<div id="fh5co-core-feature" style="margin-top: -5em">
 		<div class="container">
 			<div class="row">
 				<div class="features">
