@@ -4,7 +4,6 @@
 ?>
 <!-- Impresindible para que la pagina funcione -->
 <script src="js/jquery.min.js"></script>
-<script src="js/ie-emulation-modes-warning.js"></script>
 <!-- Impresindible para que la pagina funcione -->
 
 <div class="col-md-12 text-center">	

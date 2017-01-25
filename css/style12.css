@@ -307,7 +307,8 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 800px;
+  /*height: 800px;*/
+	height: 700px;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -336,7 +337,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-cover .display-t,
 .fh5co-cover .display-tc {
   z-index: 9;
-  height: 900px;
+	height: 700px;
   display: table;
   width: 100%;
 }
@@ -561,7 +562,8 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-about,
 #fh5co-contact,
 #fh5co-footer {
-  padding: 7em 0;
+  padding: 0em 0;
+	padding-top: 3em;
   clear: both;
 }
 @media screen and (max-width: 768px) {
@@ -577,12 +579,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-core-feature {
-  padding-top: 10em;
+  padding-top: 0em;
   clear: both;
 }
 @media screen and (max-width: 768px) {
   #fh5co-core-feature {
-    padding-top: 3em;
+    padding-top: 0em;
     padding-bottom: 0em;
   }
 }
@@ -638,7 +640,8 @@ h1, h2, h3, h4, h5, h6, figure {
 .features .col-half .table-c {
   display: table-cell;
   vertical-align: middle;
-  height: 554px;
+  /*height: 554px;*/
+	height: 470px;
 }
 .features .col-half .table-c .desc {
   width: 85%;

@@ -17,16 +17,13 @@
 							<h2>La red social donde encontraras todo sobre los sectores productivos del pais y del mundo </h2>
 							
 							<div class="row">
-								
-								
+								<form class="form-inline" id="fh5co-header-subscribe">
 									<div class="col-md-8 col-md-offset-2">
-										<?php require_once("agimerca/vista_login.php"); ?>
-										<!--div class="form-group">
+										<div class="form-group">
 											<a href="agimerca/" class="btn btn-success">Entra Ahora!!</a>
-										</div-->
+										</div>
 									</div>
-								
-								
+								</form>
 							</div>
 							
 						</div>
@@ -65,6 +62,4 @@
 
 	
 <?php require_once ("foot.php"); ?>
-<script type="text/javascript">
-		selectMenu('1');
-</script>	
+	
