@@ -32,8 +32,8 @@
 						<h3>Informacion de contacto</h3>
 						<ul>
 							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li class="phone"><a href="tel://1234567920">(829)-573-5022</a></li>
-							<li class="email"><a href="#">info@yoursite.com</a></li>
+							<li class="phone"><a href="tel://8299465022">(829)-946-5022</a></li>
+							<li class="email"><a href="mailto:info@Agimerca.com">info@Agimerca.com</a></li>
 							
 						</ul>
 					</div>
