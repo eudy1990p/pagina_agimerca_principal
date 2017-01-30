@@ -4,13 +4,14 @@
 ?>
 <!-- Impresindible para que la pagina funcione -->
 <script src="js/jquery.min.js"></script>
+<script src="js/ie-emulation-modes-warning.js"></script>
 <!-- Impresindible para que la pagina funcione -->
 
-<div class="col-md-12 text-center">	
+<div class="col-xs-12 text-center">	
 	<h3 class="alert alert-info text-primary" style="margin-top: 1em">Ultimas entradas</h3>
 </div>
 <!-- Se establece el tamaño en 12 en un principio -->
-<div class="col-md-12">
+<div class="col-xs-12">
 	<div class="carousel slide" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
 	  <div class="carousel-inner">
 
@@ -34,7 +35,7 @@
 			<!-- ==================	========================================================================== -->
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
-			<div class="card col-xs-3 alert" >
+			<div class="card col-lg-3 col-md-3  col-sm-6 col-xs-12 alert" >
 			  <!-- <img class="card-img-top img-responsive" src="<?php echo $datos['img_url'] ?>" alt="sin imagen"> -->
 			  <h5><strong>Contenido</strong></h5>
 			  <div class="card-block">
