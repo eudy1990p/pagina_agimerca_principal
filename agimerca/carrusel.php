@@ -41,7 +41,7 @@
 			  <div class="card-block">
 			    <!-- <h4 class="card-title"></h4> -->
 			    <div class="card-text texto-publicacion" style="height: 5em;overflow: hidden;">
-					<?php echo $datos['post']; ?>
+					<?php echo strip_tags($datos['post']); ?>
 			    </div>
 			  </div>
 			  <ul class="list-group list-group-flush">
