@@ -35,10 +35,10 @@
 			<!-- ==================	=====================================n===================================== -->
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
-
-			<div class="card   col-lg-3 col-md-4  col-sm-6 col-xs-12">
+		
+			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="window.location='new_page.html'">
 			  <div class="card-block" >
-			    <p class="card-text" style="
+			    <p class="card-text texto-post" style="
 			    	width: 100%;
 			    	height: 120px;
 			    	font-size: 11px;
@@ -49,12 +49,12 @@
 			    	">	
 		    	
 			    	<img 
-			    	class="img-thumbnail" 
+			    	class="img-thumbnail imagen-post" 
 			    	style="float: left;height: 90%;width: 45%;margin: 5px"  
 			    	src="agimerca/<?php echo $datos['img_url'] ?>" 
 			    	alt="Post sin imagen">
-
 			    	<?php echo strip_tags($datos['post']); ?>
+			    	
 			    </p>
 			  </div>
 			  <ul class="list-group list-group-flush">
@@ -72,7 +72,6 @@
 			  Fecha: <?php echo $datos['fecha_creado'] ?>
 			</div>
 
-			
 	    </div>
 
 
@@ -124,22 +123,56 @@
 	text-align: justify;
 }
 
+.texto-post{
+	border: 1px solid #80808033;
+	border-radius: 3px;
+}
+
+.card:hover{
+	background-color: #0093ff1a;
+}
+
 </style>
+
 <script type="text/javascript">
-	$('.carousel[data-type="multi"] .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  for (var i=0;i<2;i++) {
-    next=next.next();
-    if (!next.length) {
-    	next = $(this).siblings(':first');
-  	}
-    
-    next.children(':first-child').clone().appendTo($(this));
-  }
-});
+	$(document).ready(function(){
+		$('.carousel[data-type="multi"] .item').each(function(){
+	  var next = $(this).next();
+	  if (!next.length) {
+	    next = $(this).siblings(':first');
+	  }
+	  next.children(':first-child').clone().appendTo($(this));
+	  
+	  for (var i=0;i<2;i++) {
+	    next=next.next();
+	    if (!next.length) {
+	    	next = $(this).siblings(':first');
+	  	}
+	    
+	    next.children(':first-child').clone().appendTo($(this));
+	  }
+
+	  //vista con texto y con imagen viene por defecto.
+
+	  //Vista de texto sin imagen
+	  	$('.imagen-post').load(function(){
+
+	  	}).error(function(){
+	  		$(this).remove();
+	  	});
+	  //vista de imagen sin texto
+	  	if($('.texto-post').text().trim()==''){
+	  		$('.imagen-post').css({
+	  			'width':'100%',
+	  			'float':'none'
+	  		});
+	  	}
+
+	  $(document).on('hover','.item',function(e){
+	  	alert('hola');
+	  });
+
+
+		});
+	});
 </script>
