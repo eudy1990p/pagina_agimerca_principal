@@ -32,7 +32,7 @@
 			while($datos = mysqli_fetch_array($resultado)):
 				static $c=0;
 			?>
-			<!-- ==================	========================================================================== -->
+			<!-- ==================	=====================================n===================================== -->
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
 
@@ -47,7 +47,7 @@
 			    	padding-top: 5px;
 			    	margin-bottom: 5px;/*El margen en la paret inferior es de 20 y hace que lusca extraño*/
 			    	">	
-			    	
+		    	
 			    	<img 
 			    	class="img-thumbnail" 
 			    	style="float: left;height: 90%;width: 45%;margin: 5px"  
