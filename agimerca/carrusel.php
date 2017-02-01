@@ -35,14 +35,27 @@
 			<!-- ==================	========================================================================== -->
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
-			<div class="card col-lg-3 col-md-3  col-sm-6 col-xs-12 alert" >
-			  <!-- <img class="card-img-top img-responsive" src="<?php echo $datos['img_url'] ?>" alt="sin imagen"> -->
-			  <h5><strong>Contenido</strong></h5>
-			  <div class="card-block">
-			    <!-- <h4 class="card-title"></h4> -->
-			    <div class="card-text texto-publicacion" style="height: 5em;overflow: hidden;">
-					<?php echo strip_tags($datos['post']); ?>
-			    </div>
+
+			<div class="card   col-lg-3 col-md-4  col-sm-6 col-xs-12">
+			  <div class="card-block" >
+			    <p class="card-text" style="
+			    	width: 100%;
+			    	height: 120px;
+			    	font-size: 11px;
+			    	overflow: hidden;
+			    	text-align: justify;
+			    	padding-top: 5px;
+			    	margin-bottom: 5px;/*El margen en la paret inferior es de 20 y hace que lusca extraño*/
+			    	">	
+			    	
+			    	<img 
+			    	class="img-thumbnail" 
+			    	style="float: left;height: 90%;width: 45%;margin: 5px"  
+			    	src="agimerca/<?php echo $datos['img_url'] ?>" 
+			    	alt="Post sin imagen">
+
+			    	<?php echo strip_tags($datos['post']); ?>
+			    </p>
 			  </div>
 			  <ul class="list-group list-group-flush">
 			    <li class="list-group-item">
@@ -51,18 +64,15 @@
 			    	</a>
 			    </li>
 			    <li class="list-group-item">
-				    <a href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
-				    	author:<?php echo $datos['autor'] ?>
-				    </a>
-			    <!--
-			    http://localhost/agimercaEudy/publicaciones_perfil_usuario.php?user_id=2 
-			     -->
+			    	<a href="#" class="card-link"> <a href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
+				   	author:<?php echo $datos['autor'] ?>
+				</a>
 			    </li>
 			  </ul>
-			  <div class="card-block">
-			    <p class="alert alert-info">Fecha: <?php echo $datos['fecha_creado'] ?></p>
-			  </div>
+			  Fecha: <?php echo $datos['fecha_creado'] ?>
 			</div>
+
+			
 	    </div>
 
 
