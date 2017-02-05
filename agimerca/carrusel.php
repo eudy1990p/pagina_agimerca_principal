@@ -21,7 +21,7 @@
 		$c= new Conexion();
 			$sql = 
 			"
-			select posts.*,max(posts.fecha_creado),usuarios.id as usuario,usuarios.user as autor
+			select posts.*,DATE_FORMAT(posts.fecha_creado, '%d/%m/%Y') as fecha_formato,max(posts.fecha_creado),usuarios.id as usuario,usuarios.user as autor
 			from posts join usuarios on posts.user_id_creado=usuarios.id
 			group by posts.fecha_creado desc limit 20; 
 			";
@@ -36,15 +36,16 @@
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
 		
-			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" style="cursor:pointer;" onclick="window.location='new_page.html'">
+			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" onclick="window.location='new_page.html'">
 			  <div class="card-block" >
 			    <p class="card-text texto-post" style="
 			    	width: 100%;
-			    	height: 120px;
+			    	height: 200px;
 			    	font-size: 11px;
 			    	overflow: hidden;
 			    	text-align: justify;
-			    	padding-top: 5px;
+			    	padding-top: 15px;
+			    	padding: 5px;
 			    	margin-bottom: 5px;/*El margen en la paret inferior es de 20 y hace que lusca extraño*/
 			    	">	
 		    	
@@ -53,23 +54,28 @@
 			    	style="float: left;height: 90%;width: 45%;margin: 5px"  
 			    	src="agimerca/<?php echo $datos['img_url'] ?>" 
 			    	alt="Post sin imagen">
-			    	<?php echo strip_tags($datos['post']); ?>
+			    	<?php echo strip_tags($datos['post']); ?>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			    	
 			    </p>
-			  </div>
-			  <ul class="list-group list-group-flush">
-			    <li class="list-group-item">
-			    	<a class="btn btn-block btn-info" href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
+			    <a class="" href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
 			    		ver publicacion
 			    	</a>
-			    </li>
+			  </div>
+			  <ul class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>' ">
 			    <li class="list-group-item">
-			    	<a href="#" class="card-link"> <a href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>">
-				   	author:<?php echo $datos['autor'] ?>
-				</a>
+			    	<span>autor:</span><a href="#" class="card-link">
+				   	<?php echo $datos['autor'] ?>
+					</a>
+					<span class="pull-right "><?php echo $datos['fecha_formato'] ?></span>
+					<span class="clearfix"></span>
 			    </li>
 			  </ul>
-			  Fecha: <?php echo $datos['fecha_creado'] ?>
+			  
 			</div>
 
 	    </div>
@@ -124,12 +130,14 @@
 }
 
 .texto-post{
+	margin-top: 8px;
 	border: 1px solid #80808033;
 	border-radius: 3px;
 }
 
-.card:hover{
-	background-color: #0093ff1a;
+.card:hover .texto-post{
+	box-shadow: 0px 0px 15px #004bff4d;
+	/*background: #0093ff1a;*/
 }
 
 </style>
