@@ -24,9 +24,9 @@
 						</ul>
 		 				<h3>Redes Sociales</h3>
 		 				<ul class="fh5co-footer-links">
-							 <a style="font-size: 36px;padding: 0px 10px 0px 1px;" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-							 <a style="font-size: 36px;padding: 0px 1px;" class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
-							 <a  style="font-size: 36px;padding: 0px 1px;" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+							 <a href="https://www.facebook.com/Agimerca-1207944869270562/" style="font-size: 36px;padding: 0px 10px 0px 1px;" class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+							 <a href="https://plus.google.com/u/0/101549527133893668820" style="font-size: 36px;padding: 0px 1px;" class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+							 <a href="https://twitter.com/AgimercaSRL" style="font-size: 36px;padding: 0px 1px;" class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
 						</ul>
 						<!--a href="vista_contacto.php"><button type="button" class="btn btn-danger">Contactanos</button></a-->
 					</div>

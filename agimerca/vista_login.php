@@ -23,7 +23,7 @@ how about, learn "programming"? ;)
           <strong><?php echo $label->LoginEmail; ?> <?php echo $label->O; ?> <?php echo $label->LoginClave; ?> <?php echo $label->NoCoinsiden; ?></strong></div>
       <?php }   } ?>
 
-      <form action="" method="post" class="form-signin">
+      <form action="agimerca/index.php" method="post" class="form-signin">
 					
 					<input type="hidden" name="login">
 						
