@@ -9,7 +9,7 @@ class Conexion
 	private $use="root";
 	private $clave="";
 	private $hots="localhost";
-	private $db="agimerca_db";
+	private $db="agimerca_db_tmp";
 	private $cone;
 
 	function __construct()

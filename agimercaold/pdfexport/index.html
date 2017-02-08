@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Export HTML table values into PDF using jQuery</title>
+ <script type='text/javascript' src='jquery-git2.js'></script>
+<script type='text/javascript' src="jspdf.debug.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49265271-1', 'codeinnovators.blogspot.com');
+  ga('send', 'pageview');
+
+</script>
+<style>
+	/*tr,td,th{ padding:5px;}*/
+</style>
+<script type='text/javascript'>
+function htmltopdf() {
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    source = $('#htmlexportPDF')[0];
+    specialElementHandlers = {
+        '#bypassme': function (element, renderer) {
+            return true
+        }
+    };
+    margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+    };
+    pdf.fromHTML(
+    source, 
+    margins.left,
+    margins.top, { 
+        'width': margins.width, 
+        'elementHandlers': specialElementHandlers
+    },
+
+    function (dispose) {
+        pdf.save('Download.pdf');
+    }, margins);
+}
+
+</script>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body id="home" style='font-family:PT Sans, sans-serif'>
+<div style='width:900px;margin:auto; background:none; border:none; color:#000'>
+  <p style="color:#000">Tutorial Link : <a style="color:#000" href="http://codeinnovators.blogspot.in/2014/07/change-colors-using-jquery.html">Click Here</a></p>
+  <p style="color:#000">More tutorials: <a style="color:#000" href="http://codeinnovators.blogspot.in">Code Innovators</a></p>
+  <h1>Export HTML table values into PDF using jQuery</h1>
+	<div id="htmlexportPDF">
+    <table id="exportPDF" border="1" style="border-collapse: collapse;" class="table table-striped">
+        
+        <thead>
+						<tr>
+							<th>Sno</th>
+							<th>Programming Languages</th>
+							<th>Sno</th>
+							<th>Programming Languages</th>
+							<th>Sno</th>
+							<th>Programming Languages</th>
+							<th>Sno</th>
+							<th>Programming Languages</th>
+						
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Dot Net</td>
+							<td>2</td>
+							<td>Dot Net</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>PHP</td>
+							<td>3</td>
+							<td>PHP</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>ASP</td>
+							<td>4</td>
+							<td>ASP</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Drupal</td>
+							<td>5</td>
+							<td>Drupal</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Joomla</td>
+							<td>6</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+							<td>Joomla</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Wordpress</td>
+							<td>7</td>
+							<td>Wordpress</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Javascript</td>
+							<td>8</td>
+							<td>Javascript</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>C#</td>
+							<td>9</td>
+							<td>C#</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>Magento</td>
+							<td>10</td>
+							<td>Magento</td><td>1</td>
+							<td>Java</td>
+							<td>1</td>
+							<td>Java</td>
+						</tr>
+					</tbody>
+				</table>
+</div>
+<button onclick="javascript:htmltopdf();">Export PDF</button>
+  
+			<div>
+				<button id="btn">Export to excel</button></div>
+</div>
+</body>
+</html>
