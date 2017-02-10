@@ -19,7 +19,7 @@
 						<h3>Informacion de contacto</h3>
 		 				
 						<ul>
-							<li class="phone"><a href="tel://1234567920">(829)-946-5022</a></li>
+							<li class="phone"><a href="tel://8299465022">(829)-946-5022</a></li>
 							<li class="email"><a href="mailto:info@Agimerca.com">info@Agimerca.com</a></li>					
 						</ul>
 		 				<h3>Redes Sociales</h3>

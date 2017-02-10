@@ -31,7 +31,7 @@
 					<div class="fh5co-contact-info">
 						<h3>Informacion de contacto</h3>
 						<ul>
-							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li class="address">Calle 4ta. #15 3er Nivel<br>Ensanche Carmelita</li>
 							<li class="phone"><a href="tel://8299465022">(829)-946-5022</a></li>
 							<li class="email"><a href="mailto:info@Agimerca.com">info@Agimerca.com</a></li>
 							
