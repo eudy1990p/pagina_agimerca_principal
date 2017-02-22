@@ -40,8 +40,36 @@
 	<div class="container-fluid">
 		<?php require_once 'agimerca/carrusel.php'; ?>
 	</div>
-
+<hr/>
 	<div id="fh5co-core-feature" style="margin-top: -5em">
+		<div class="container">
+			<div class="row">
+				<div class="features">
+                    
+					<div class="col-half animate-box" data-animate-effect="fadeInLeft">
+						<div class="table-c">
+							<div class="desc">
+								
+								<h4 style="    font-size: 33px;
+    line-height: 55px;
+    font-weight: 300;
+    text-align: justify;
+    color: #0c9cee;"
+                                    >Para publicar y conocer: Ofertas y Demandas, conéctate a Agimerca; Eventos y Actividades Agimerca te publica, gratis</h4>
+								
+								<p><a href="agimerca/registro.php" class="btn btn-lg btn-primary">&Uacute;nete Ya !!!!!!</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-half-image-holder animate-box" data-animate-effect="fadeInRight">
+						<img class="img-responsive" style="margin-bottom: 14%;" src="images/mm.png" alt="samsung">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><br/>
+        <hr/>
+    	<div id="fh5co-core-feature" style="margin-top: -5em">
 		<div class="container">
 			<div class="row">
 				<div class="features">
@@ -50,7 +78,7 @@
 							<div class="desc">
 								
 								<h3>Enterate de las facilidades que te ofrece Agimerca</h3>
-								<p>Para publicar y conocer: Ofertas y Demandas, conéctate a Agimerca; Eventos y Actividades Agimerca te publica, gratis</p>
+								
 								<p><a href="servicio.html" class="btn btn-lg btn-primary">Leer mas</a></p>
 							</div>
 						</div>
@@ -61,7 +89,7 @@
 				</div>
 			</div>
 		</div>
-	</div><br>
+	</div><br>    
 
 	
 <?php require_once ("foot.php"); ?>

@@ -36,9 +36,9 @@
 			<!-- Solo debe haber un item con la clase active -->
 		<div class="item <?php if($c==1)echo "active";$c++; ?>">
 		
-			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" onclick="window.location='new_page.html'">
+			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" >
 			  <div class="card-block" >
-			    <p class="card-text texto-post" style="
+			    <a style="text-decoration:none;color:black;" class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id']; ?>"><p class="card-text texto-post" style="
 			    	width: 100%;
 			    	height: 200px;
 			    	font-size: 11px;
@@ -52,26 +52,22 @@
 			    	<img 
 			    	class="img-thumbnail imagen-post" 
 			    	style="float: left;height: 90%;width: 45%;margin: 5px"  
-			    	src="agimerca/<?php echo $datos['img_url'] ?>" 
+			    	src="agimerca/<?php echo $datos['img_url']; ?>" 
 			    	alt="Post sin imagen">
-			    	<?php echo strip_tags($datos['post']); ?>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			    	<?php echo strip_tags($datos['post']); ?>
 			    	
 			    </p>
-			    <a class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id'] ?>">
+                  </a>
+			    <a class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id']; ?>">
 			    		ver publicacion
 			    	</a>
 			  </div>
-			  <ul class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario'] ?>' ">
+			  <ul class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario']; ?>' ">
 			    <li class="list-group-item">
-			    	<span>autor:</span><a href="#" class="card-link">
-				   	<?php echo $datos['autor'] ?>
+			    	<span>autor:</span><a href="agimerca/ver_info_perfil_usuario.php?id=<?php echo $datos['id']; ?>" class="card-link">
+				   	<?php echo $datos['autor']; ?>
 					</a>
-					<span class="pull-right "><?php echo $datos['fecha_formato'] ?></span>
+					<span class="pull-right "><?php echo $datos['fecha_formato']; ?></span>
 					<span class="clearfix"></span>
 			    </li>
 			  </ul>
