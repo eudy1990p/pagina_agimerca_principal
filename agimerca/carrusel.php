@@ -59,12 +59,12 @@
 			    </p>
                   </a>
 			    <a class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id']; ?>">
-			    		ver publicacion
+			    		ver publicaci&oacute;n
 			    	</a>
 			  </div>
 			  <ul class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario']; ?>' ">
 			    <li class="list-group-item">
-			    	<span>autor:</span><a href="agimerca/ver_info_perfil_usuario.php?id=<?php echo $datos['id']; ?>" class="card-link">
+			    	<span>autor:</span><a href="agimerca/publicaciones_perfil_usuario.php?id=<?php echo $datos['user_id_creado']; ?>" class="card-link">
 				   	<?php echo $datos['autor']; ?>
 					</a>
 					<span class="pull-right "><?php echo $datos['fecha_formato']; ?></span>
