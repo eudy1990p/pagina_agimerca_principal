@@ -3,68 +3,28 @@
 		$usuario_id = "1";
 		if(isset($_GET["user_id"]) && ($_GET["user_id"] != "")){
             $usuario_id =$_GET["user_id"];
-            //$usuario_id =base64_decode($_GET["user_id"]);
-            //die("user ".$usuario_id);
-		}
-
-	if(isset($_POST)){
-		if(isset($_POST["accion"]) && ($_POST["accion"] == "agregar_post")){
-			$post->setPost($_POST,$_FILES);
-		}
-		if(isset($_POST["accion"]) && ($_POST["accion"] == "agregar_comentario")){
-			$post->setComentarioPost($_POST["post"],$_POST["id_post"],$_SESSION["id"]);
-			//$post->setPost($_POST,$_FILES);
-		}
-		if(isset($_POST["accion"]) && ($_POST["accion"] == "editar_post")){
-			$post->editProducto($_POST,$_FILES);
-			//$post->setPost($_POST,$_FILES);
-		}
-	}
+         }
 ?>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
-
-	  	
 	  <!-- Nelson puso la mano aqui. -->
 <div class="page-header">
 	        <h1><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
                   <?php echo "Perfil"; ?> 
 
-                <a class="btn btn-info" href="mensajeria.php?mensaje_dejado=<?php echo $_GET["user_id"]?>">Dejar mensaje</a>
-
+                 <!-- Si el usuario seleccionado es el mismo actual entonces
+                 no se muestra el boton dejar mensaje. ya que es ilogico dejarse un 
+                 mensje a si mismo 
+                 -->
+   				<?php if ($_GET["user_id"] != $_SESSION['id']){ ?>
+   					<a class="btn btn-info" href="mensajeria.php?mensaje-dejado=<?php echo $_GET["user_id"]; ?>">Dejar mensaje</a>	
+                <?php } ?>
+               	
 </h1>
 </div>
 
 <div class="row">
 		<div class="col-xs-8">
-			<!--<form action="" method="post" enctype="multipart/form-data">
-				<input type="hidden" id="accion" name="accion" value="agregar_post"/>
-				<input type="hidden" name="add" value=""/>
-				<input type="hidden" name="idpost" id="idpost" value=""/>
+	
 
-
-				<div class="row">
-					<div class="col-xs-12">
-						<?php require_once("vista_select_categorias_sub_subsub.php"); ?>
-					</div>
-					<div class="col-xs-12">
-						<textarea id="post" name="post" class="form-control" rows="5"></textarea>
-					</div>
-					<div class="col-xs-6"><br/>
-						Imagen <input type="file" name="imgProducto" />
-					</div>				
-					<div class="col-xs-6 text-right"><br/>
-						<button id="btpublicar" type="submit" class="btn btn-success">Publicar</button>
-					</div>
-
-				</div>
-			</form>
-			-->
-			
-			
-			
-
-			<div>
 				<!-- Contextual button for informational alert messages -->
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
