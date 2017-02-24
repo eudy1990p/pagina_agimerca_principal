@@ -1,4 +1,4 @@
-<?php $array =$usuario->getDatoUserId($_SESSION["id"]);
+<?php $array =$usuario->getDatoUserId($usuario_id);
 ?>
 <div class="row">
 		<div class="col-xs-12">
