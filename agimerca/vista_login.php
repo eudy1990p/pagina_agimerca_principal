@@ -1,4 +1,4 @@
-<?php require_once("agimerca/class/class_ini.php"); 
+<?php require_once("agimerca/class/class_ini1.php"); 
  if (isset($_POST)) {
     if (isset($_POST["login"])) {
      $resp = $usuario->validarDatosUser($_POST);
@@ -7,10 +7,7 @@
  if (isset($_GET["deslogueo"])) {
     $usuario->eliminarSesiones();
  }
-/**
-for this peace of software-"quality" shit you take money? 
-how about, learn "programming"? ;)
-*/
+
 ?>
    <div  style="background-color: rgba(51, 51, 51, 0.51);color: white;">
 
@@ -32,7 +29,7 @@ how about, learn "programming"? ;)
 						<input style="    color: #555;
     background-color: #fff;
     background-image: none;
-    border: 1px solid #ccc;" type="text" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus>
+    border: 1px solid #ccc;" type="email" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus>
 					</div>
 					<div class="form-group">
 							<label for="inputPassword" class="sr-only"><?php echo $label->LoginClave; ?> </label>
@@ -44,7 +41,7 @@ how about, learn "programming"? ;)
 
 					<button class=" btn-lg btn-success btn-block" type="submit"><?php echo $label->LoginBtnEntrar; ?> </button>
 					
-					<a class=" btn-lg btn-primary btn-block" style="color:#fff;" href="registro.php"><?php echo "Registrarte"; ?> </a>
+					<a class=" btn-lg btn-primary btn-block" style="color:#fff;" href="agimerca/registro.php"><?php echo "Registrarte"; ?> </a>
 		  </form>
 
     </div> <!-- /container -->

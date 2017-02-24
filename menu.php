@@ -11,7 +11,7 @@
 						<li id="3"><a href="vista_about.php">Institucionalidad</a></li>
 						<li id="4"><a href="vista_servicio.php">Servicios</a></li>
 						<li id="5"><a href="vista_contacto.php">Contacto</a></li>
-						<li><a href="agimerca/">Login</a></li>
+						<li><a href="agimerca/busqueda_normal.php?opcionesAvanzadas=si"> Buscador</a></li>
 					</ul>
 				</div>
 			</div>

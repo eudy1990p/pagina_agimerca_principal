@@ -59,7 +59,7 @@ how about, learn "programming"? ;)
 <br/>
 				
         <label for="inputEmail" class="sr-only"><?php echo $label->LoginEmail; ?></label>
-        <input type="text" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus>
+        <input type="email" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus>
         <label for="inputPassword" class="sr-only"><?php echo $label->LoginClave; ?> </label><br/>
 				
         <input type="password" id="inputPassword" name="clave" class="form-control" placeholder="<?php echo $label->LoginClave; ?>" required>

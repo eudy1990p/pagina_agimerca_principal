@@ -34,7 +34,7 @@
 			?>
 			<!-- ==================	=====================================n===================================== -->
 			<!-- Solo debe haber un item con la clase active -->
-		<div class="item <?php if($c==1)echo "active";$c++; ?>">
+		<div title="Publicación" class="item <?php if($c==1)echo "active";$c++; ?>">
 		
 			<div class="card   col-lg-3 col-md-4 col-sm-6 col-xs-12" >
 			  <div class="card-block" >
@@ -58,13 +58,13 @@
 			    	
 			    </p>
                   </a>
-			    <a class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id']; ?>">
+			    <a title="Clic para poder ver el detalle de la publicación" class="" href="agimerca/vista_detalle_post.php?id=<?php echo $datos['id']; ?>">
 			    		ver publicaci&oacute;n
 			    	</a>
 			  </div>
-			  <ul class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['usuario']; ?>' ">
+			  <ul title="Clic para ver el perfil del usuario" class="list-group list-group-flush" style="cursor:pointer;" onclick="window.location='agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['user_id_creado']; ?>' ">
 			    <li class="list-group-item">
-			    	<span>autor:</span><a href="agimerca/publicaciones_perfil_usuario.php?id=<?php echo $datos['user_id_creado']; ?>" class="card-link">
+			    	<span>autor:</span><a href="agimerca/publicaciones_perfil_usuario.php?user_id=<?php echo $datos['user_id_creado']; ?>" class="card-link">
 				   	<?php echo $datos['autor']; ?>
 					</a>
 					<span class="pull-right "><?php echo $datos['fecha_formato']; ?></span>
@@ -78,7 +78,7 @@
 
 
 			<!-- ============================================================================================ -->
-		<?php endwhile;?>
+		<?php endwhile; ?>
 
 
 

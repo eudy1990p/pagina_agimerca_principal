@@ -66,7 +66,7 @@ how about, learn "programming"? ;)
         <input type="hidden" name="login">
         <h2 class="form-signin-heading">Agimerca-<?php echo $label->LoginTitle; ?></h2>
         <label for="inputEmail" class="sr-only"><?php echo $label->LoginEmail; ?></label>
-        <input type="text" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus><br/>
+        <input type="email" id="inputEmail" name="user" class="form-control" placeholder="<?php echo $label->LoginEmail; ?>" required autofocus><br/>
 				
         <label for="inputPassword" class="sr-only"><?php echo $label->LoginClave; ?> </label>
         <input type="password" id="inputPassword" name="clave" class="form-control" placeholder="<?php echo $label->LoginClave; ?>" required>
