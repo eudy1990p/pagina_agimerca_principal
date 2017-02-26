@@ -47,12 +47,11 @@
 					<?php 
 
 								require_once("vistas_post.php");
-				//							require_once("vistas_post_edit.php");
-							//vistas_post.php
-
-								$get = $post->getPost("where user_id_creado = '".$usuario_id."' ");
+                                $get = $post->getPost("where p.user_id_creado = '".$usuario_id."' ");
+                                //print_r($get);
 								$contador=0;
-								while($res = mysqli_fetch_array($get)){
+								
+                                while($res = mysqli_fetch_array($get)){
 									//allpost($res["img_url"],$res["user"],$res["post"],$contador,$res["id"],$post);
 									allpost($res["img_perfil"],$res["user"],$res["post"],$contador,$res["id"],$post,$res["img_url"]);
 									$contador++;

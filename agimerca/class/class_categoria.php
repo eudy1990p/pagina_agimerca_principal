@@ -574,7 +574,7 @@ class Categoria
 	
 		function getRelacionCateriaSubCategoria($idCategoria=""){
 			if(!(empty($idCategoria))){
-				$idCategoria = "WHERE c.id = '".base64_decode($idCategoria)."' ";
+				$idCategoria = "WHERE c.id = '".$idCategoria."' ";
 			}
 		$sql = "SELECT 
 rcs.id AS id_relacion,
@@ -639,7 +639,7 @@ $idCategoria
 	
 		function getRelacionSubCateriaSubSubCategoria($idCategoria=""){
 			if(!(empty($idCategoria))){
-				$idCategoria = "WHERE rcs.id = '".base64_decode($idCategoria)."' ";
+				$idCategoria = "WHERE rcs.id = '".$idCategoria."' ";
 			}
 			$sql = "
 			SELECT 
@@ -668,7 +668,7 @@ $idCategoria
 					if ($query) {
 						return $query;
 					}else{
-						echo $this->c->error;
+						echo mysqli_error($this->c)+" "+$this->c->error;
 						die("Error en la consulta");
 					}
 				}	

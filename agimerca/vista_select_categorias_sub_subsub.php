@@ -193,7 +193,7 @@
                           method:"post",
                           dataType:"json",
                           success:function (data){
-                          alert(data);
+                         // alert(data);
                               $("#relacion_sector_roll_id").html("<option value='' ></option>");
                             console.log(data+" - "+$("#categoria_id_s").val()); 
                             
@@ -224,7 +224,7 @@
                           method:"post",
                           dataType:"json",
                           success:function (data){
-                          alert(data);
+                         // alert(data);
                               $("#relacion_producto_sector_id").html("<option value='' ></option>");
                             console.log(data+" - "+$("#relacion_sector_roll_id").val()); 
                             

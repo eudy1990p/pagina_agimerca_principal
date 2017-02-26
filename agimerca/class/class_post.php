@@ -15,9 +15,62 @@ class Post
 	}
 	function setIdUser($id){ $this->id = $id; }
 	
-	function getPost($where="",$limit="limit 50"){
-		$sql = "SELECT p.id,u.id as id_user,u.user, p.post, p.img_url,u.img_perfil FROM posts as p left join usuarios as u on p.user_id_creado = u.id ".$where." ".$limit."";
-		//echo $sql;
+	function getPost($where1="",$limit="limit 50",$p=""){
+		
+       $where="";
+        if( isset($p["busqueda_post"]) && (!empty($p["busqueda_post"])) ){
+			if(empty($where)){
+					$where .= " p.post like '%".$p["busqueda_post"]."%' ";
+			}else{
+					$where .= " and ( p.post like '%".$p["busqueda_post"]."%') ";
+			}	
+		}
+        
+        if( isset($p["categoria_id"]) && (!empty($p["categoria_id"])) ){
+			if(empty($where)){
+					$where .= " c.id = '".$p["categoria_id"]."' ";
+			}else{
+					$where .= " and (c.id = '".$p["categoria_id"]."') ";
+			}	
+		}
+         if( (isset($p["categoria_id"]) && (!empty($p["categoria_id"])) ) || ( isset($p["busqueda_post"]) && (!empty($p["busqueda_post"]))) ){
+            $where =" where ".$where;
+        }
+  
+    if(empty($where1) ){    
+        $sql = "SELECT 
+			p.id,u.user,u.id as id_user, p.post, p.img_url,u.img_perfil
+			FROM
+			relacion_categoria_subcategoria AS rcs
+
+			INNER JOIN relacion_subcategorias_subsubcategoria AS rcss
+			ON rcs.id = rcss.relacion_categoria_subcategoria_id
+
+			INNER JOIN relacion_sub_of_sub_categoria_posts AS rssp
+			ON rcss.id = rssp.relacion_subcategorias_subsubcategoria_id
+
+			INNER JOIN categorias AS c
+			ON rcs.categoria_id = c.id
+
+			INNER JOIN sub_categorias AS sc
+			ON sc.id = rcs.sub_categoria_id
+
+			INNER JOIN sub_of_sub_categorias AS ssc
+			ON ssc.id = rcss.sub_of_sub_categoria_id
+
+			INNER JOIN posts AS p
+			ON rssp.posts_id = p.id
+
+			INNER JOIN usuarios AS u 
+			ON p.user_id_creado = u.id
+            
+			 ".$where." ".$limit."";
+        
+    }else{
+            $sql = "SELECT p.id,u.id as id_user,u.user, p.post, p.img_url,u.img_perfil FROM posts as p left join usuarios as u on p.user_id_creado = u.id ".$where1." ".$limit."";
+        }
+        
+		//echo "<pre>".$sql."</pre>";
 		$query = $this->c->query($sql);
 		if ($query) {
 			return $query;
@@ -133,6 +186,23 @@ class Post
 					$where .= " and (p.observaciones like '%".$p["observacion"]."%') ";
 			}	
 		}
+        
+        if( isset($p["fecha_desde"]) && (!empty($p["fecha_desde"])) ){ //CURDATE()	
+            if(!empty($p["fecha_hasta"])){
+                if(empty($where)){
+                        $where .= "p.fecha_creado  between '".$p["fecha_desde"]."' and '".$p["fecha_hasta"]."'  ";
+                }else{
+                        $where .= " and (p.fecha_creado between '".$p["fecha_desde"]."'  and '".$p["fecha_hasta"]."' ) ";
+                }
+            }else{
+                if(empty($where)){
+                        $where .= "p.fecha_creado  between '".$p["fecha_desde"]."' and CURDATE()  ";
+                }else{
+                        $where .= " and (p.fecha_creado between '".$p["fecha_desde"]."'  and CURDATE() ) ";
+                }
+            }
+		}
+        
 		//p.post LIKE '%a%'
 		$sql = "SELECT 
 			p.id,u.user,u.id as id_user, p.post, p.img_url,u.img_perfil

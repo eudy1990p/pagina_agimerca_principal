@@ -6,24 +6,17 @@
 */
 class Usuarios
 {
-	
-	/*	Nelson.	tracamandaca
-	*	Estos miembros de la clase usuarios
-	*	Estaban declarados como privados lo que es correcto
-	*	pero como no se lleva a cabo ningun control con ellos
-	*	los redeclare como publicos para mayor facilidad de uso
-	*	de los mismos.
-	*/
 
-	public $c;
-	public $TblGrupo="";
-	public $usuario="";
-	public $id="";
-	public $grupo_id= "";
-	public $permisos="";
-	public $cambio="";
-	public $tipo_usuario="";
-	public $img_perfil="";
+	private $c;
+	private $TblGrupo="";
+	private $usuario="";
+	private $id="";
+	private $grupo_id= "";
+	private $permisos="";
+	private $cambio="";
+	private $tipo_usuario="";
+	private $img_perfil="";
+    private $primeravez = "";
 
 
 
@@ -193,6 +186,19 @@ class Usuarios
 			die("Error en la consulta");
 		}
 	}
+    
+    	function editUsuarioPrimeraVez(){
+
+		$update = "update usuarios set primeravez = '0'  where id='".$_SESSION["id"]."';";
+		$query = $this->c->query($update);
+		if ($query) {
+			echo "Todo bien";
+			return $query ;
+		}else{
+			echo $this->c->error;
+			die("Error en la consulta");
+		}
+	}
     function editUsuarioExtra($p,$f){
         $where = "";
         
@@ -320,6 +326,7 @@ class Usuarios
 					$this->id = $res->id;
 					$this->tipo_usuario = $res->tipo_user;
 					$this->img_perfil =$res->img_perfil;
+                    $this->primeravez =$res->primeravez;
 					$this->asignarValoresSession();
 				}
 				return true;
@@ -362,6 +369,7 @@ class Usuarios
 		$_SESSION["id"]=$this->id;
 		$_SESSION["tipo_usuario"]=$this->tipo_usuario;
 		$_SESSION["img_perfil"]=$this->img_perfil;
+        $_SESSION["primeravez"]=$this->primeravez;
 		//$_SESSION["cambio"]=$this->cambio;
 		//$_SESSION["permisos"]=$this->permisos["permisos"];
 		
