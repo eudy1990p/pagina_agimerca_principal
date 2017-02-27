@@ -22,7 +22,7 @@ $getPais = $post->getPais();
 	  	
 	  
 <div class="page-header">
-	        <h1><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+	        <h1><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 
                   <?php echo "Detalle de la publicación"; ?></h1>
 </div>
 

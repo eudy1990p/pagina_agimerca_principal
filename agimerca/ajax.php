@@ -37,11 +37,7 @@ while($resCategoria = mysqli_fetch_object($resultCategoria)){
 			break;
         
     case 'productos':
-        //print_r($_POST);
-        //echo $_POST["idRelacionCategoriaSector"];
-			$result = $categoria->getRelacionSubCateriaSubSubCategoria($_POST["idRelacionCategoriaSector"]); 
-        //print_r($result->fetch_object());
-        //echo $result->num_rows;
+		$result = $categoria->getRelacionSubCateriaSubSubCategoria($_POST["idRelacionCategoriaSector"]); 
         $array = "";$c = 0;
         
         while($resCategoria = $result->fetch_object()){
@@ -52,13 +48,24 @@ while($resCategoria = mysqli_fetch_object($resultCategoria)){
 }
             print_r(json_encode($array));
 			break;
-		case 'serchUser':
+        //validarUsuario
+		case 'validarUsuario':
 			$query = $usuario->getSerchUser($_POST);
 			$result = $query->fetch_object();
 			print_r(json_encode(array('total' => $result->total)));
 			break;
 		
-		case 'serchGrupo':
+		case 'productoSugerido':
+        $query = $post->insertarProducto($_POST["mercado"],$_POST["sector"],$_POST["subsector"],$_POST["producto"],$_SESSION["id"]);
+			if($query){
+                $array = "1";
+            }else{
+                $array = "0";
+            }
+			print_r(json_encode(array('respuesta' => $array)));
+			break;
+        
+        case 'serchGrupo':
 			$query = $permiso->getSerchGrupo($_POST);
 			$result = $query->fetch_object();
 			print_r(json_encode(array('total' => $result->total)));

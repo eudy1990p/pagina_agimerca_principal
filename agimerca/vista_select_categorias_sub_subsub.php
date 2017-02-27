@@ -14,8 +14,13 @@
 		 }else{
 			$requeridoA = true;
 		}
+    if( isset($_SESSION["id"]) ){
+        $estaslogueado = "si";
+    }else{
+        $estaslogueado = "no";
+    }
 ?>
-
+<input type="hidden" id="logueado" value="<?php echo $estaslogueado; ?>" />
 <input type="hidden" id="buscadorAvanzado" value="<?php if(isset($_GET["opcionesAvanzadas"])){ echo "opcionesAvanzadas"; } ?>"  />
 
 <!-- div class="table-responsive">
@@ -103,6 +108,41 @@
 			<option  value="" ></option>
 		</select>
 </div>
+<div id="agregarOpcion" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Agregar nueva opción</h4>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group"  title="Ingrese el mercado que desea agregar">
+                <label for="mercado">Mercado</label>
+                <input type="text" class="form-control" id="mercado" placeholder="Mercado">
+              </div>
+              <div class="form-group" title="Ingrese el sector que desea agregar">
+                <label for="sector">Sector</label>
+                <input type="text" class="form-control" id="sector" placeholder="Sector">
+              </div>
+              <div class="form-group" title="Ingrese el sub sector que desea agregar">
+                <label for="sub_sector">Sub Sector</label>
+                <input type="text" class="form-control" id="sub_sector" placeholder="Sub Sector">
+              </div>
+              <div class="form-group" title="Ingrese el producto que desea agregar">
+                <label for="producto">Producto</label>
+                <input type="text" class="form-control" id="producto" placeholder="Producto">
+              </div>
+            </form>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" id="idBtGuardar" class="btn btn-primary">Guardar</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <script type="text/javascript">
 			function mostrarSectores(){
 				var idCategoria = $("#categoria_id").val();
@@ -173,10 +213,20 @@
                             
                             for( i = 0 ; i < data.length ; i++){
                             //console.log("entro");   
-                              var opciones = "<option value='"+data[i]["id"]+"' >"+data[i]["nombre"]+"</option>";
-                            //console.log(opciones);
-                              $("#categoria_id_s").append(opciones);    
+                              var opciones = "<option value='"+data[i]["id"]+"' >"+data[i]["nombre"]+"</option>";                   
+                                $("#categoria_id_s").append(opciones);    
                             }
+                            /*  var opciones = "<option value='CLIC PARA AGREGAR UNO NUEVO' >CLIC PARA AGREGAR UNO NUEVO</option>";
+                              $("#categoria_id_s").append(opciones);*/
+                              if(logueado()){
+                              var opciones = "<option value='CLIC PARA AGREGAR UNO NUEVO' >CLIC PARA AGREGAR UNO NUEVO</option>";
+                              $("#categoria_id_s").append(opciones);
+                              }else{
+                              var opciones = "<option value='registrate' >PARA AGREGAR UNO NUEVO DEBE ESTAR LOGUEADO</option>";
+                              $("#categoria_id_s").append(opciones);
+                                  
+                              }
+                              
                           },
                           error:function (){
                               console.error("Nada bueno");
@@ -185,8 +235,17 @@
                 
                 $("#categoria_id_s").on("change", function (e){
                     //console.error( $("#categoria_id_s").val() );
+                    $("#relacion_sector_roll_id").html("<option value='' ></option>");
+                    $("#relacion_producto_sector_id").html("<option value='' ></option>");
                     
                     if($("#categoria_id_s").val() != 0){
+                        if($("#categoria_id_s").val() ==  "CLIC PARA AGREGAR UNO NUEVO" ){
+                            mostrarModal();
+                        }else if($("#categoria_id_s").val() ==  "registrate" ){
+                            irregistrate();
+                             //registrate
+                        }else{
+                    
                     $.ajax({
                           url:"ajax.php",
                           data:{accion:"sectores",idRelacionCategoriaSector:$("#categoria_id_s").val()},
@@ -203,11 +262,22 @@
                             //console.log(opciones);
                               $("#relacion_sector_roll_id").append(opciones);    
                             }
+                            /*var opciones = "<option value='CLIC PARA AGREGAR UNO NUEVO' >CLIC PARA AGREGAR UNO NUEVO</option>";
+                              $("#relacion_sector_roll_id").append(opciones);*/
+                              if(logueado()){
+                              var opciones = "<option value='CLIC PARA AGREGAR UNO NUEVO' >CLIC PARA AGREGAR UNO NUEVO</option>";
+                              $("#relacion_sector_roll_id").append(opciones);
+                              }else{
+                              var opciones = "<option value='registrate' >PARA AGREGAR UNO NUEVO DEBE ESTAR LOGUEADO</option>";
+                              $("#relacion_sector_roll_id").append(opciones);
+                                  
+                              }
                           },
                           error:function (){
                               console.error("Nada bueno");
                           }
                       });
+                    }
                     }else{
                         alert("Debe seleccinar un mercado");
                         return false;
@@ -216,8 +286,17 @@
             
                 $("#relacion_sector_roll_id").on("change", function (e){
                     //console.error( $("#categoria_id_s").val() );
+                    $("#relacion_producto_sector_id").html("<option value='' ></option>");
                     
                     if($("#relacion_sector_roll_id").val() != 0){
+                         if($("#relacion_sector_roll_id").val() ==  "CLIC PARA AGREGAR UNO NUEVO" ){
+                            mostrarModal();
+                             //registrate
+                        }else if($("#relacion_sector_roll_id").val() ==  "registrate" ){
+                            irregistrate();
+                             //registrate
+                        }else{    
+                    
                     $.ajax({
                           url:"ajax.php",
                           data:{accion:"productos",idRelacionCategoriaSector:$("#relacion_sector_roll_id").val()},
@@ -234,16 +313,75 @@
                             //console.log(opciones);
                               $("#relacion_producto_sector_id").append(opciones);    
                             }
+                              if(logueado()){
+                              var opciones = "<option value='CLIC PARA AGREGAR UNO NUEVO' >CLIC PARA AGREGAR UNO NUEVO</option>";
+                              $("#relacion_producto_sector_id").append(opciones);
+                              }else{
+                              var opciones = "<option value='registrate' >PARA AGREGAR UNO NUEVO DEBE ESTAR LOGUEADO</option>";
+                              $("#relacion_producto_sector_id").append(opciones);
+                                  
+                              }
                           },
                           error:function (){
                               console.error("Nada bueno");
                           }
                       });
+                        }
                     }else{
                         alert("Debe seleccinar un mercado");
                         return false;
                     }
                 });
                 
+                //relacion_producto_sector_id
+                $("#relacion_producto_sector_id").on("change", function (e){
+                    if($("#relacion_producto_sector_id").val() != 0){
+                        if($("#relacion_producto_sector_id").val() == "CLIC PARA AGREGAR UNO NUEVO"){
+                            mostrarModal();  
+                        }else if($("#relacion_producto_sector_id").val() ==  "registrate" ){
+                            irregistrate();
+                             //registrate
+                        }
+                    }
+                });
+                
+                $("#idBtGuardar").click( function (e){
+                    //console.error( $("#categoria_id_s").val() );
+                    $.ajax({
+                          url:"ajax.php",
+                          data:{accion:"productoSugerido",mercado:$("#mercado").val(),sector:$("#sector").val(),subsector:$("#sub_sector").val(),producto:$("#producto").val()},
+                          method:"post",
+                          dataType:"json",
+                          success:function (data){
+                                //alert(data);
+                              console.log(data);
+                              if(data["respuesta"] == "1"){
+                                alert("Se guardo correctamente");  
+                                $('#agregarOpcion').modal('hide');
+                              }else{
+                                alert("No se pudo guardar");  
+                              }
+                          },
+                          error:function (){
+                              console.error("Nada bueno");
+                          }
+                      });
+                });
+                
             });
+            function mostrarModal(){
+                $('#agregarOpcion').modal('show');
+            }
+            function logueado(){
+                if($("#logueado").val() == "si"){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            function irregistrate(){
+                window.location = "registro.php";
+            }
+    
+    //productoSugerido
       </script>

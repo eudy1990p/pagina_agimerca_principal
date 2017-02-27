@@ -13,7 +13,7 @@ Do you ever heard about PSR-0 ?
 	require_once("class_empresa.php");
 	require_once("class_post.php");
 	require_once("class_categoria.php");
-
+	require_once("Controladores/Mensajeria.php");
 
 	$label = new Labeles("spanish");
 	$conexion = new Conexion();

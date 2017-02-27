@@ -1,4 +1,5 @@
 <?php
+    $tituloAgimerca="Red Social Inicio";
 	require_once("header.php");
 	
 	 if(isset($_POST)){
@@ -19,37 +20,14 @@ $getPais = $post->getPais();
 	  
 	  
 <div class="page-header">
-	        <h1><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+	        <h1><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 
                   <?php echo $label->MenuFactura; ?></h1>
 </div>
 <div class="row">
 		<div class="col-xs-8">
-			<form action="" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="accion" value="agregar_post"/>
-				<input type="hidden" name="add" value=""/>
-
-				<div class="row">
-					<div class="col-xs-12">
-						<?php require_once("vista_select_categorias_sub_subsub.php"); ?>
-					</div>
-					<div class="col-xs-12">
-						<?php require_once("vista_agregar_post.php"); ?>
-						
-					</div>
-					<div class="col-xs-6"><br/>
-						Imagen <input type="file" name="imgProducto" />
-					</div>				
-					<div class="col-xs-6 text-right"><br/>
-					<a href="inicio.php" class="btn btn-warning">Cancelar</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<button type="submit" class="btn btn-success">Publicar</button>
-					</div>
-
-				</div>
-			</form>
-			
-			
-			
 			<?php 
-				
+                require_once("vista_form_agregar_publicaciones.php");	
+
 				require_once("vistas_post.php");
 				
 				$get = $post->getPost();

@@ -16,7 +16,7 @@ function   allpost($img_usuario,$nombre_usuario,$postCuerpo,$contador="1",$idPos
 		<button title="Clic para mostrar los campos para dejar comentario" onclick="mostarComentario('<?php echo $contador; ?>')" class="btn btn-default" >Comentar</button>
 	</div>
 	
-	<?php if($imagen != "img/Imagen_no_disponible.jpg"){	?>
+	<?php if( ($imagen != "img/Imagen_no_disponible.jpg")  && (!empty($imagen)) ){	?>
 	<div class="col-xs-12" style="background-color: #fff;margin-top: 11px;">
 		
 		<img  title="Imagen de la publicación"  src="<?php echo $imagen; ?>" class="img-responsive img-rounded" alt="Imagen post" />

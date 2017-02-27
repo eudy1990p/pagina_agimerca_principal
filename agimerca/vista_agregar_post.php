@@ -1,6 +1,6 @@
 <a href="javascript:void(0);" title="Clic para mostrar opciones o ocultarla " onclick="mostrarOpcinesAvanzadas();" id="enlaceA">Opciones Avanzadas</a>
 <input type="hidden" value="0" id="agregarproducto" />
-<div id="post_basico"> 
+<div id="post_basico" title="Aquí puede ingresar su noticias "> 
 <textarea name="post" id="post" class="form-control" rows="5"></textarea>
 </div>
 

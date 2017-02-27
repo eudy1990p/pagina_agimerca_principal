@@ -3,6 +3,9 @@ require_once("class/class_ini.php");
 if (isset($_POST["cambiarClave"])) {
    $usuario->cambiarClave($_POST);
 }
+if(!isset($tituloAgimerca) || empty($tituloAgimerca)){
+    $tituloAgimerca = "Inicio";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@ if (isset($_POST["cambiarClave"])) {
     <meta name="author" content="Eudy Arias programador">
     <link rel="icon" href="img/mm.png">
 
-    <title id="titulosPH">Inicio-Agimerca</title>
+    <title id="titulosPH"><?php echo $tituloAgimerca; ?>-Agimerca</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +50,7 @@ if (isset($_POST["cambiarClave"])) {
          $( document ).ready(function() {
   // Handler for .ready() called.
            $( ".select2" ).select2( { placeholder: "Seleccione una opción"} );
-             $( ".select2buscador" ).select2( { placeholder: "Seleccione un rol",width:"140"} );
+             $( ".select2buscador" ).select2( { placeholder: "Seleccione un mercado"} );
 });
       </script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

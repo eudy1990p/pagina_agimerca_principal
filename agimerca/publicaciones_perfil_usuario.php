@@ -7,7 +7,7 @@
 ?>
 	  <!-- Nelson puso la mano aqui. -->
 <div class="page-header">
-	        <h1><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+	        <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
                   <?php echo "Perfil"; ?> 
 
                  <!-- Si el usuario seleccionado es el mismo actual entonces

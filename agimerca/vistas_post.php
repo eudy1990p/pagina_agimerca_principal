@@ -95,6 +95,8 @@ while($resComent = mysqli_fetch_object($resultComent)){
 <?php } ?>
 
 
+
+
 <script type="text/javascript">
 	function mostarComentario(id){
 		var mostrado = $("#mostrar"+id);

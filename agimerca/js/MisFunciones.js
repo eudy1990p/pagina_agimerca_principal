@@ -154,7 +154,7 @@ $("html").ready(function(){
 	});
 
 
-	$("#exampleModalCambiarClave").modal("show");
+/*	//$("#exampleModalCambiarClave").modal("show");*/
 
 });
 function activarRestriccionPermiso(){

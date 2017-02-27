@@ -135,7 +135,7 @@ class Usuarios
 
 		$sql = "select count(u.id) as total 
 		from usuarios as u
-		where u.user = '".$p["idRegistro"]."' ";
+		where u.user = '".$p["usuario"]."' ";
 		$query = $this->c->query($sql);
 		if ($query) {
 			return $query;

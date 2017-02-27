@@ -20,10 +20,9 @@ how about, learn "programming"? ;)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-     <meta name="description" content="manejador de multiples banca">
-    <meta name="author" content="Eudy Arias programador">
-    <link rel="icon" href="http://eudy.260mb.net/eudyarias/img/eudyicono.png">
-
+    <meta name="description" content="Red Social de agimerca">
+      <meta name="author" content="Eudy Arias programador">
+    <link rel="icon" href="img/mm.png">
     <title><?php echo $label->LoginTitle; ?>-Agimerca</title>
 
     <!-- Bootstrap core CSS -->

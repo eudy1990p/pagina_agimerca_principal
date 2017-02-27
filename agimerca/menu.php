@@ -23,7 +23,7 @@
             <li class="active" id="idMenuFactura">
               <a href="inicio.php" title="Clic para ir al inicio de la red social"
               class="<?php if (isset($_SESSION["tipo_usuario"]) && ($_SESSION["tipo_usuario"] == "normal" || $_SESSION["tipo_usuario"] == "admin") ) { ?> <?php }else{ ?>sinPrivilegios <?php } ?>">
-              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               <?php echo $label->MenuFactura; ?>
               </a>
             </li>
@@ -115,7 +115,7 @@
 							<li  title="Clic para salir de la red social" id="idMenuFactura">
 								<a href="index.php?deslogueo="
 								class=" ">
-								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 								<?php echo "Salir"; ?>
 								</a>
 							</li>
@@ -177,7 +177,6 @@
             <li>
               <a href="mensajeria.php" title="Clic para entrar a su mensajeria" class="btn btn-xs btn-link">mensajes <span class="glyphicon glyphicon-envelope"></span>
               <span class="badge">
-                  
                 <?php 
                   $c = new Conexion();
 
@@ -196,7 +195,9 @@
               </a>
             </li>
               
-              <li>  <a href="publicaciones.php" title="Clic para ver mi perfil" ><img class="img-circle" src="<?php echo $_SESSION["img_perfil"]; ?>" width="23" /> <?php   echo $_SESSION['usuario'];  ?></a></li>
+              <li>  <a href="publicaciones.php" title="Clic para ver mi perfil" ><img 
+              width="20" height="20"
+              class="img-circle" src="<?php echo $_SESSION["img_perfil"]; ?>" /> <?php   echo $_SESSION['usuario'];  ?></a></li>
           </ul>
           <?php } ?>
 					

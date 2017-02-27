@@ -19,10 +19,10 @@
 					
 					<div class="panel-body">
 						<?php 
-                                die("paso dos tres");
+                                //die("paso dos tres");
 
 							if(isset($_POST)){
-}
+
 								$c = new Conexion();
 
 								$sql = '';

@@ -14,7 +14,25 @@ class Post
 		$this->c = $conexion;
 	}
 	function setIdUser($id){ $this->id = $id; }
-	
+
+    function insertarProducto($mercado,$sector,$subsector,$producto,$usuarioid){
+		
+    $sqlInsert ="INSERT INTO 
+             producto_sugerido(categoria , subcategoria, subsubcategoria, subsubsubcategoria,fecha_creado,user_id_creado) 
+            VALUES 
+            ('".$mercado."','".$sector."','".$subsector."','".$producto."',now(),'".$usuarioid."' ) ";
+
+
+                    //$this->verQuery($sqlInsert);
+                    $query = $this->c->query($sqlInsert);
+                    if ($query) {
+                        return true;
+                    }else{
+                        echo $this->c->error;
+                        die("Error en la consulta1");
+                    }	
+}
+    
 	function getPost($where1="",$limit="limit 50",$p=""){
 		
        $where="";
@@ -37,7 +55,7 @@ class Post
             $where =" where ".$where;
         }
   
-    if(empty($where1) ){    
+    if(empty($where1) && (!empty($where)) ){    
         $sql = "SELECT 
 			p.id,u.user,u.id as id_user, p.post, p.img_url,u.img_perfil
 			FROM
@@ -67,7 +85,7 @@ class Post
 			 ".$where." ".$limit."";
         
     }else{
-            $sql = "SELECT p.id,u.id as id_user,u.user, p.post, p.img_url,u.img_perfil FROM posts as p left join usuarios as u on p.user_id_creado = u.id ".$where1." ".$limit."";
+            $sql = "SELECT p.id,u.id as id_user,u.user, p.post, p.img_url,u.img_perfil FROM posts as p left join usuarios as u on p.user_id_creado = u.id ".$where1." order by p.fecha_creado desc ".$limit."  ";
         }
         
 		//echo "<pre>".$sql."</pre>";
@@ -318,8 +336,15 @@ $sqlInsert ="INSERT INTO
 	}
 
 	function setPost($p,$f=""){
-		$this->setIdUser($_SESSION["id"]);
-		
+        if( isset($f["imgProducto"]["name"]) && !empty($f["imgProducto"]["name"])) 
+    {    
+            $resp = $this->validarTipoImagen($f["imgProducto"]["name"]);
+            if(!$resp){
+                return false;
+            }
+    }
+        $this->setIdUser($_SESSION["id"]);
+    
 		if (isset($p["add"])) {
 
 			$query = $this->addProducto($p,$f);
@@ -356,7 +381,16 @@ $sqlInsert ="INSERT INTO
 				}
 	}
 
-
+    function validarTipoImagen($n){
+        $extencion = explode(".",$n);
+        $ext = strtolower( $extencion[count($extencion) - 1] );
+        if($ext == "jpeg" || $ext == "jpg" || $ext == "png" || $ext == "gif"){
+            return true;
+        }else {
+            echo "<script> alert('Solo se permite subir imagenes JPG,PNG,GIF'); </script>";
+            return false;
+        }
+    }
 	function editProducto($p,$f=""){
 		$this->setIdUser($_SESSION["id"]);
 		$url="";
