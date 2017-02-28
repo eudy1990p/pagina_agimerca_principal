@@ -14,7 +14,7 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Bienvenido a Agimerca</h1>
-							<h2>La red social donde encontraras ofertas y demandas de los sectores sociales, productivos y comerciales. </h2>
+							<h2>La red social donde podran publicar y encontrar ofertas y demandas los sectores sociales, productivos y comerciales. </h2>
 							
 							<div class="row">
 								
